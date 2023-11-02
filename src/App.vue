@@ -11,7 +11,7 @@ const items = ref([
             {
                 label: 'Efficacité',
                 icon: 'pi pi-fw pi-plus',
-                url: "/usersingleview"
+                url: "/efficiency"
             },
             {
                 label: 'Tableau',
