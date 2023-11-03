@@ -47,6 +47,18 @@ export const UseCallApi = async (param:any)=>{
 			return [];
 		}        
     }
+
+	if(param.action==='GetTufftingStandard') {
+
+        try {
+			const listStandard = await axios.get(url+'/api/TufterAnalyse/GetTufftingStandard');		
+			return listStandard.data;
+		} catch (err) {
+			// Handle Error Here
+			console.error(err);
+			return [];
+		}        
+    }
     
     
     

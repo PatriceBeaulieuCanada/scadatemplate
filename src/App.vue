@@ -19,6 +19,11 @@ const items = ref([
                 url: "/performance"
             },
             {
+                label: 'Standard',
+                icon: 'pi pi-fw pi-plus',
+                url: "/standard"
+            },
+            {
                 label: 'Tableau',
                 icon: 'pi pi-fw pi-trash',
                 url: "/graphdb"
