@@ -2,8 +2,8 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 
-//const url = 'http://localhost:5001'
-const url = 'http://itvxscada:5001'
+const url = 'http://localhost:5001'
+//const url = 'http://itvxscada:5001'
 
 export const UseCallApi = async (param:any)=>{
 
@@ -28,17 +28,25 @@ export const UseCallApi = async (param:any)=>{
 		}        
     }
 
-    // if(param.action==='GetEmployee') {
+    if(param.action==='GetTufftingEfficiencies') {
 
-    //     try {
-	// 		const listEmployee = await axios.get(url+'/api/Employees/GetAllEmployees');		
-	// 		return listEmployee.data;
-	// 	} catch (err) {
-	// 		// Handle Error Here
-	// 		console.error(err);
-	// 		return [];
-	// 	}        
-    // }
+
+		const params ={
+			date1:param.date1,
+			date2:param.date2
+		}
+
+		//console.log(params)
+
+        try {
+			const listEfficiency = await axios.get(url+'/api/TufterAnalyse/GetTufftingEfficiencies?'+queryString.stringify(params));		
+			return listEfficiency.data;
+		} catch (err) {
+			// Handle Error Here
+			console.error(err);
+			return [];
+		}        
+    }
     
     
     

@@ -5,7 +5,7 @@ import { UseCallApi } from "../../service/UseCallApi";
 const startDate = ref(new Date());
 const endDate = ref(new Date());
 const dt1 = ref();
-const dataEfficiency = ref();
+const dataPerformance = ref();
 const param = { action: "", date1: new Date(), date2: new Date(), tufter: "" };
 let data = [];
 
@@ -14,7 +14,7 @@ const handleClick = async () => {
   param.date2 = new Intl.DateTimeFormat("en-US").format(endDate.value) as any;
   param.action = "GetTufftingEfficiencies";
   data = await UseCallApi(param);
-  dataEfficiency.value = data;
+  dataPerformance.value = data;
   //console.log(dataEfficiency);
 };
 
@@ -24,9 +24,9 @@ const exportCSV1 = () => {
 </script>
 
 <template>
-  <div class="effContainer">
-    <label>Éfficacité par employés</label>
-    <div class="effHeader">
+  <div class="perContainer">
+    <label>Performance par touffeteur</label>
+    <div class="perHeader">
       <div class="item">
         <label>Date Début : </label>
         <Calendar v-model="startDate" dateFormat="yy/mm/dd" showIcon />
@@ -42,10 +42,10 @@ const exportCSV1 = () => {
         icon="pi pi-chart-bar"
       ></Button>
     </div>
-    <div class="effGrid">
+    <div class="perGrid">
       <DataTable
         class="gridCSS"
-        :value="dataEfficiency"
+        :value="dataPerformance"
         tableStyle="min-width: 50rem"
         scrollable
         scrollHeight="95%"
@@ -63,11 +63,6 @@ const exportCSV1 = () => {
           </div>
         </template>
         <Column
-          field="operator"
-          header="Opérateur"
-          :style="{ textAlign: 'left' }"
-        ></Column>
-        <Column
           field="tuffter"
           header="Touffeteur"
           :style="{ textAlign: 'left' }"
@@ -82,21 +77,18 @@ const exportCSV1 = () => {
           header="Qty fait (Mètres)"
           :style="{ textAlign: 'left' }"
         ></Column>
-        <Column field="nbr28po" header="Nbr 28 pouces" />
-        <Column field="nbrGluePerBeam" header="Nbr attache par colle" />
-        <Column field="nbrAirPerBeam" header="Nbr attache par air" />
-        <Column field="nbrKnots" header="Noeuds" width="10%" />
-        <Column field="nbrFloor" header="Plancher" />
-        <Column field="nbrBringChariot" header="Nbr apporter Chariot" />
-        <Column field="nbrRemoveChariot" header="Nbr enlever Chariot" />
-        <Column field="nbrBacking" header="Nbr endos" />
+        <Column field="nbr28po" header="Vitesse" />
+        <Column field="nbrGluePerBeam" header="Stitch" />
+        <Column field="nbr28po" header="Temps Standard (heures)" />
+        <Column field="nbrGluePerBeam" header="Temps scada (heures)" />
+        <Column field="nbrAirPerBeam" header="Temps inscrit (heures)"/>
       </DataTable>
     </div>
   </div>
 </template>
 
 <style scoped>
-.effContainer {
+.perContainer {
   width: 100%;
   height: 100%;
   border: 1px solid black;
@@ -107,14 +99,14 @@ const exportCSV1 = () => {
   flex-direction: column;
 }
 
-.effContainer label {
+.perContainer label {
   margin-top: 5px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
 
-.effHeader {
+.perHeader {
   width: 100%;
   height: 8%;
   display: flex;
@@ -125,11 +117,11 @@ const exportCSV1 = () => {
   padding: 5px;
 }
 
-.effHeader label {
+.perHeader label {
   margin: 0 10px;
 }
 
-.effHeader .bntCSS {
+.perHeader .bntCSS {
   margin: 0 10px;
 }
 </style>

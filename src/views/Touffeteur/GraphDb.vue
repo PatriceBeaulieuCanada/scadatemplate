@@ -83,7 +83,7 @@ const exportCSV4 = () => {
 
 <template>
    
-    <div class="mainContainer">
+    <div class="mainContainer1">
       <div class="mainHeader">
         <div class="item1">
           <Dropdown
@@ -244,7 +244,7 @@ const exportCSV4 = () => {
 </template>
 
 <style scoped>
-.mainContainer {
+.mainContainer1 {
   background-color: #fff;
   height: 100%;
   width: 100%;

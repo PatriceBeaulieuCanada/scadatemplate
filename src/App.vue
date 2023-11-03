@@ -14,6 +14,11 @@ const items = ref([
                 url: "/efficiency"
             },
             {
+                label: 'Performance',
+                icon: 'pi pi-fw pi-plus',
+                url: "/performance"
+            },
+            {
                 label: 'Tableau',
                 icon: 'pi pi-fw pi-trash',
                 url: "/graphdb"
@@ -74,7 +79,8 @@ const items = ref([
     width: 99%;
     position: absolute;
     margin: 0px;
-    padding: 0px;    
+    padding: 0px; 
+     
 }
 .appMenu {
   height: 6%;
