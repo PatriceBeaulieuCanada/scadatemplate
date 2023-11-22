@@ -60,7 +60,25 @@ export const UseCallApi = async (param:any)=>{
 		}        
     }
     
-    
+    if(param.action==='GetTufftingTimeProd') {
+
+
+		const params ={
+			date1:param.date1,
+			date2:param.date2
+		}
+
+		//console.log(params)
+
+        try {
+			const listTimeProd = await axios.get(url+'/api/TufterAnalyse/GetTufftingStatsByQuart?'+queryString.stringify(params));		
+			return listTimeProd.data;
+		} catch (err) {
+			// Handle Error Here
+			console.error(err);
+			return [];
+		}        
+    }
     
     
 }

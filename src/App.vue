@@ -23,6 +23,12 @@ const items = ref([
                 icon: 'pi pi-fw pi-plus',
                 url: "/standard"
             },
+            ,
+            {
+                label: 'Temps prod',
+                icon: 'pi pi-fw pi-plus',
+                url: "/timeprod"
+            },
             {
                 label: 'Tableau',
                 icon: 'pi pi-fw pi-trash',
@@ -50,13 +56,13 @@ const items = ref([
         icon: 'pi pi-fw pi-file',
         items: [
             {
-                label: 'Efficacité',
-                icon: 'pi pi-fw pi-plus'
+                label: 'Rejet',
+                icon: 'pi pi-fw pi-plus',
+                url: "/rejet"
             },
             {
                 label: 'Temps arrêt',
-                icon: 'pi pi-fw pi-trash',
-                url: "/usersingleview"
+                icon: 'pi pi-fw pi-trash'                
             }            
         ]
     },   
